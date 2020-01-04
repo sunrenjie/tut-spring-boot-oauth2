@@ -59,8 +59,13 @@ import org.springframework.web.filter.CompositeFilter;
 @Order(200)
 public class SocialApplication extends WebSecurityConfigurerAdapter {
 
-	@Autowired
+	private
 	OAuth2ClientContext oauth2ClientContext;
+
+	@Autowired
+	public void setOauth2ClientContext(OAuth2ClientContext oauth2ClientContext) {
+		this.oauth2ClientContext = oauth2ClientContext;
+	}
 
 	@RequestMapping({ "/user", "/me" })
 	public Map<String, String> user(Principal principal) {
@@ -94,14 +99,6 @@ public class SocialApplication extends WebSecurityConfigurerAdapter {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SocialApplication.class, args);
-	}
-
-	@Bean
-	public FilterRegistrationBean<OAuth2ClientContextFilter> oauth2ClientFilterRegistration(OAuth2ClientContextFilter filter) {
-		FilterRegistrationBean<OAuth2ClientContextFilter> registration = new FilterRegistrationBean<OAuth2ClientContextFilter>();
-		registration.setFilter(filter);
-		registration.setOrder(-100);
-		return registration;
 	}
 
 	@Bean

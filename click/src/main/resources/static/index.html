@@ -23,7 +23,7 @@
     </div>
     <script type="text/javascript">
           $.get("/user", function(data) {
-            $("#user").html(data.userAuthentication.details.name);
+            $("#user").html(data.userAuthentication.details.login);
             $(".unauthenticated").hide()
             $(".authenticated").show()
           });

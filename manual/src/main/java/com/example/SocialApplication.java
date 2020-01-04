@@ -69,7 +69,7 @@ public class SocialApplication extends WebSecurityConfigurerAdapter {
 	public static void main(String[] args) {
 		SpringApplication.run(SocialApplication.class, args);
 	}
-
+/*
 	@Bean
 	public FilterRegistrationBean<OAuth2ClientContextFilter> oauth2ClientFilterRegistration(OAuth2ClientContextFilter filter) {
 		FilterRegistrationBean<OAuth2ClientContextFilter> registration = new FilterRegistrationBean<OAuth2ClientContextFilter>();
@@ -77,7 +77,7 @@ public class SocialApplication extends WebSecurityConfigurerAdapter {
 		registration.setOrder(-100);
 		return registration;
 	}
-
+*/
 	private Filter ssoFilter() {
 		OAuth2ClientAuthenticationProcessingFilter facebookFilter = new OAuth2ClientAuthenticationProcessingFilter(
 				"/login/facebook");
