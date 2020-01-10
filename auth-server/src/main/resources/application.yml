@@ -5,6 +5,7 @@ security:
       client-secret: acmesecret
       scope: read,write
       auto-approve-scopes: '.*'
+      registered-redirect-uri: http://localhost:9999/client/login
 
 facebook:
   client:
